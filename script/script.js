@@ -35,11 +35,11 @@ async function getMonthlyBtcCourseBackup() { // historical monthly btc-eur excha
     let jsonCourses = await jsonMonthlyCourseBackup;
     let arrCoursesKeys = Object.keys(jsonCourses);
     let arrCoursesTimeSeriesKeys = Object.keys(jsonCourses['Time Series (Digital Currency Monthly)']);
-    let arrMonthly = [];
+    let arrMonthlyCloseValues = [];
     for (let i = 0; i < arrCoursesTimeSeriesKeys.length; i++) {
-        arrMonthly.push(Math.round(jsonCourses['Time Series (Digital Currency Monthly)'][arrCoursesTimeSeriesKeys[i]]['4a. close (EUR)'] * 100 ) / 100 );
+        arrMonthlyCloseValues.push(Math.round(jsonCourses['Time Series (Digital Currency Monthly)'][arrCoursesTimeSeriesKeys[i]]['4a. close (EUR)'] * 100 ) / 100 );
         }
-    console.log('arrMonthly = ', arrMonthly); 
+    console.log('arrMonthlyCloseValues = ', arrMonthlyCloseValues); 
 }
 
 
