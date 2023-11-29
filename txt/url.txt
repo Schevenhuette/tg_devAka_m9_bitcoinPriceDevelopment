@@ -1,0 +1,13 @@
+Wechselkurs Chinesicher Yuan
+----------------------------
+https://www.alphavantage.co/query?function=CURRENCY_EXCHANGE_RATE&from_currency=BTC&to_currency=CNY&apikey=53G8MU0P10TSA54I
+
+
+Wechselkurs Euro
+----------------
+https://www.alphavantage.co/query?function=CURRENCY_EXCHANGE_RATE&from_currency=BTC&to_currency=EUR&apikey=53G8MU0P10TSA54I
+
+
+Historischer Wechselkurs Euro - monatlich
+-----------------------------------------
+https://www.alphavantage.co/query?function=DIGITAL_CURRENCY_MONTHLY&symbol=BTC&market=EUR&apikey=EUR&apikey=53G8MU0P10TSA54I

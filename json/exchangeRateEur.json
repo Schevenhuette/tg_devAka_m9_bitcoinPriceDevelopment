@@ -1,0 +1,13 @@
+{
+    "Realtime Currency Exchange Rate": {
+        "1. From_Currency Code": "BTC",
+        "2. From_Currency Name": "Bitcoin",
+        "3. To_Currency Code": "EUR",
+        "4. To_Currency Name": "Euro",
+        "5. Exchange Rate": "34423.84526952",
+        "6. Last Refreshed": "2023-11-29 04:31:03",
+        "7. Time Zone": "UTC",
+        "8. Bid Price": "34423.83618394",
+        "9. Ask Price": "34423.84526952"
+    }
+}
