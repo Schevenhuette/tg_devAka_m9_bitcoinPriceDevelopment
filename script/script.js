@@ -1,26 +1,24 @@
 'use strict';
 
-
-
 let url = 'https://www.alphavantage.co/query?function=CURRENCY_EXCHANGE_RATE&from_currency=BTC&to_currency=CNY&apikey=';
 let urlMonthly = 'https://www.alphavantage.co/query?function=DIGITAL_CURRENCY_MONTHLY&symbol=BTC&market=EUR&apikey=';
 const API_KEY = '53G8MU0P10TSA54I';
 
-async function getBtcCourseData() {
+async function getBtcCourseData() { // fetch btc-data from alpha-vantage
     let dataBtcCourse = await fetch(url + API_KEY);
     let jsonBtcCourse = await dataBtcCourse.json();
     let arrBtcCourseKeys = Object.keys(jsonBtcCourse);
 
-    if (arrBtcCourseKeys[0] === 'Information') {
-        getBtcCourseBackup(jsonCourseBackup);
+    if (arrBtcCourseKeys[0] === 'Information') { // maximum requests of alpha-vantage exceeded 
+        getCurrentBtcCourseBackup(jsonCourseBackup);
         getMonthlyBtcCourseBackup();
-    } else {
-        getBtcCourse(jsonBtcCourse);
+    } else { // alpha vantage request successful
+        getCurrentBtcCourse(jsonBtcCourse);
     };
 }
 
 
-async function getBtcCourseBackup(jsonBtcCourse) { // btc-eur exchange course from backup-data
+async function getCurrentBtcCourseBackup(jsonBtcCourse) { // btc-eur exchange course from backup-data
     let jsonCourse = jsonBtcCourse;
     let course = Math.round(jsonCourse['Realtime Currency Exchange Rate']['5. Exchange Rate'] * 100) / 100;
     let output = document.getElementById('output').innerHTML = /*html*/ `
@@ -43,7 +41,7 @@ async function getMonthlyBtcCourseBackup() { // historical monthly btc-eur excha
 }
 
 
-async function getBtcCourse(jsonBtcCourse) { // actual btc-eur exchange course from alpha-vantage
+async function getCurrentBtcCourse(jsonBtcCourse) { // current btc-eur exchange course from alpha-vantage
     let jsonCourse = jsonBtcCourse;
     console.log('jsonCourse = ', jsonCourse);
     let course = jsonCourse['Realtime Currency Exchange Rate']['5. Exchange Rate'];
@@ -56,8 +54,8 @@ async function getBtcCourse(jsonBtcCourse) { // actual btc-eur exchange course f
 }
 
 
-function init() {
-    getBtcCourseData();
+function init() { 
+    getBtcCourseData(); // fetch btc-data from alpha-vantage
     ;
 }
 
