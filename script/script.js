@@ -3,7 +3,7 @@
 
 let url = 'https://www.alphavantage.co/query?function=CURRENCY_EXCHANGE_RATE&from_currency=BTC&to_currency=CNY&apikey=';
 let urlMonthly = 'https://www.alphavantage.co/query?function=DIGITAL_CURRENCY_MONTHLY&symbol=BTC&market=EUR&apikey=';
-const API_KEY = '53G8MU0P10TSA54I';
+let API_KEY = '';
 let courses = [];
 let month = [];
 
@@ -80,6 +80,17 @@ async function getMonthlyBtcCourse(jsonMonthlyBtcCourse) { // current monthly bt
             Die ausgegebenen Werte wurden aktuell von <i><b>https://www.alphavantage.co/</b></i> gelesen.</p>
         <!-- <b> ${courses} €</b> -->
     `;
+}
+
+
+function myFunction(event) {
+    let x = event.code;
+    if(x == "Enter") {
+        API_KEY = document.getElementById('myApiKey').value;
+        console.log('API_KEY = ', API_KEY);
+        
+        init();
+    }    
 }
 
 

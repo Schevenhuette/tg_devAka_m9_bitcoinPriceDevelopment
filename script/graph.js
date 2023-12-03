@@ -1,6 +1,7 @@
 'use strict';
 
 function btcChart() {
+
     const ctx = document.getElementById('myChart');
     new Chart(ctx, {
         type: 'line',

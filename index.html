@@ -11,8 +11,12 @@
     <script src="./script/graph.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.min.js"></script>
 </head>
-<body onload="init()">
+<!-- <body onload="init()"> -->
+<body>
     <h1>Bit-Coin Kurs</h1>
+    <p><b>ALPHA</b> VANTAGE api-key eingeben und ENTER (nicht Num-Pad) drücken</p>
+    <input type="text" placeholder="alpha-vantage api-key" id="myApiKey" onkeypress="myFunction(event)">
+
 
     <div id="output">
         <!-- rendered by javascript -->
