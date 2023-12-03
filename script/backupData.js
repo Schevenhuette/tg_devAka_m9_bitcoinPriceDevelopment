@@ -1,6 +1,6 @@
 'use strict';
 
-let jsonCourseBackup = { // backup data in case alpha vantage denies new request 
+const jsonCourseBackup = { // backup data in case alpha vantage denies new request 
     "Realtime Currency Exchange Rate": {
         "1. From_Currency Code": "BTC",
         "2. From_Currency Name": "Bitcoin",
@@ -14,7 +14,7 @@ let jsonCourseBackup = { // backup data in case alpha vantage denies new request
 }
 };
 
-let jsonMonthlyCourseBackup = { // backup data in case alpha vantage denies new request 
+const jsonMonthlyCourseBackup = { // backup data in case alpha vantage denies new request 
 "Meta Data": {
 "1. Information": "Monthly Prices and Volumes for Digital Currency",
 "2. Digital Currency Code": "BTC",
