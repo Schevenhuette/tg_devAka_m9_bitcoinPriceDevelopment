@@ -2,9 +2,9 @@
 
 Workaround wenn der **free-API-Key** von Alpha-Vantage keine weiteren Anfragen mehr zulässt.
 ## Limit erreicht ##
-In diesem Fall werden **globale Konstanten** an die ..Backup-Funktionen übergeben:
-  > getCurrentBtcCourseBackup(**jsonBtcCourseBackup**);  
-  > getMonthlyBtcCourseBackup(**jsonMonthlyCourseBackup**);
+In diesem Fall werden **globale Konstanten** an die ..***Backup***-Funktionen übergeben:
+  > getCurrentBtcCourseBackup(jsonBtcCourse***Backup***);  
+  > getMonthlyBtcCourseBackup(jsonMonthlyCourse***Backup***);
 Die Konstanten sind in **backupData.js** gespeichert.
 
 ## API - Zugriff möglich ##
