@@ -1,5 +1,6 @@
 'use strict';
 
+
 let url = 'https://www.alphavantage.co/query?function=CURRENCY_EXCHANGE_RATE&from_currency=BTC&to_currency=CNY&apikey=';
 let urlMonthly = 'https://www.alphavantage.co/query?function=DIGITAL_CURRENCY_MONTHLY&symbol=BTC&market=EUR&apikey=';
 const API_KEY = '53G8MU0P10TSA54I';
@@ -40,12 +41,14 @@ async function getMonthlyBtcCourseBackup(jsonMonthlyCourseBackup) { // historica
     let arrCoursesTimeSeriesKeys = Object.keys(jsonCourses['Time Series (Digital Currency Monthly)']);
     for (let i = 0; i < arrCoursesTimeSeriesKeys.length; i++) {
         courses.push(Math.round(jsonCourses['Time Series (Digital Currency Monthly)'][arrCoursesTimeSeriesKeys[i]]['4a. close (EUR)'] * 100 ) / 100 );
+        courses.reverse();
         month.push(arrCoursesTimeSeriesKeys[i]);
+        month.reverse();
     }
     let output = document.getElementById('output').innerHTML += /*html*/ `
         <p>Das Tageslimit an möglichen Requests bei <i><b>Alpha-Vantage</b></i> wurde erreicht! <br>
             Diese ausgegebenen Werte kommen aus den <i><b>gespeicherten</b></i> Backup Daten. </p>
-        <b> ${courses} €</b>
+        <!-- <b> ${courses} €</b> -->
     `;
 }
 
@@ -68,18 +71,21 @@ async function getMonthlyBtcCourse(jsonMonthlyBtcCourse) { // current monthly bt
     let arrCoursesTimeSeriesKeys = Object.keys(jsonMonthlyCourses['Time Series (Digital Currency Monthly)']);
     for (let i = 0; i < arrCoursesTimeSeriesKeys.length; i++) {
         courses.push(Math.round(jsonMonthlyCourses['Time Series (Digital Currency Monthly)'][arrCoursesTimeSeriesKeys[i]]['4a. close (EUR)'] * 100 ) / 100 );
+        courses.reverse();
         month.push(arrCoursesTimeSeriesKeys[i]);
+        month.reverse();
     }
     let output = document.getElementById('output').innerHTML += /*html*/ `
         <p>Das Tageslimit an möglichen Requests wurde noch nicht erreicht!<br>
-            D1e ausgegebenen Werte wurden aktuell von <i><b>https://www.alphavantage.co/</b></i> gelesen.</p>
-        <b> ${courses} €</b>
+            Die ausgegebenen Werte wurden aktuell von <i><b>https://www.alphavantage.co/</b></i> gelesen.</p>
+        <!-- <b> ${courses} €</b> -->
     `;
 }
 
 
-function init() { // start application | fetch data from alpha-vantage
-    getBtcCourseData(); // fetch btc-data from alpha-vantage
+async function init() { // start application | fetch data from alpha-vantage
+    await getBtcCourseData(); // fetch btc-data from alpha-vantage
+    btcChart();
 }
 
 
